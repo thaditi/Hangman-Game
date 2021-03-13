@@ -1,0 +1,127 @@
+* {
+  font-family: "Noto Sans JP", sans-serif;
+  /* font-family: Mulish; */
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+.dots {
+  position: absolute;
+  left: 77.62%;
+  right: 14.15%;
+  top: 77.75%;
+  bottom: 9.33%;
+}
+.oval {
+  position: absolute;
+  left: -5.34%;
+  right: 46.72%;
+  top: 35.62%;
+  bottom: -11.05%;
+}
+
+nav {
+  width: 20%;
+  float: right;
+  display: flex;
+  flex-direction: row;
+  margin-right: 10%;
+}
+
+nav a {
+  position: relative;
+  width: 33.333%;
+  display: table-cell;
+  text-align: center;
+  color: #949494;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: 0.2s ease color;
+}
+
+nav a:hover {
+  color: black;
+}
+
+.navcontainer {
+  width: 100%;
+}
+.active {
+  color: black;
+}
+.main h1 {
+  position: absolute;
+  left: 21.19%;
+  right: 21.19%;
+  top: 6.49%;
+  bottom: 79.21%;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.startbutton {
+  margin-left: 8%;
+  background-color: #458ff6;
+  padding: 8px 30px;
+  border: none;
+  border-radius: 55px;
+  font-size: 24px;
+  color: white;
+  position: absolute;
+  left: 38.75%;
+  right: 45.75%;
+  top: 22.7%;
+  bottom: 71.01%;
+}
+
+.startbutton:hover {
+  background-color: purple;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  text-emphasis: none;
+}
+
+a {
+  color: black;
+  text-emphasis: none;
+  text-decoration: none;
+}
+.upload_div {
+  background-color: #daeef7;
+  position: absolute;
+  width: 504px;
+  height: 409px;
+  left: 535px;
+  top: 303px;
+
+  border-radius: 10%;
+}
+.upload_div i,
+.upload_div label {
+  position: absolute;
+  top: 40%;
+  font-size: x-large;
+  color: #458ff6;
+}
+.upload_div i {
+  left: 48%;
+  top: 33%;
+  font-size: xx-large;
+}
+.upload_div label {
+  left: 38%;
+}
+.upload_div p {
+  position: absolute;
+  top: 44%;
+  left: 32%;
+  color: #458ff6;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skin Analyzer</title>
+    <link rel="stylesheet" type="text/css" href="./detectorPage.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@1,600&family=Noto+Sans+JP&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="navcontainer">
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="#" class="active">Analysis</a>
+        <a href="./PrevRecords.html">Diary</a>
+        <a href="./login.html">Login</a>
+        <a href="#">LogOut</a>
+      </nav>
+    </div>
+    <br />
+    <div class="main">
+      <h1>Lets start analyzing your beautiful skin!</h1>
+      <div class="buttonstart">
+        <a href="#" class="startbutton" id="analyze">Start</a>
+      </div>
+      <div class="upload_div" id="drop-area">
+        <input
+          type="file"
+          id="file-selector"
+          accept=".jpg, .jpeg, .png"
+          name="image"
+          onchange="getBaseUrl()"
+          style="display: none"
+        />
+        <i class="fa fa-camera" aria-hidden="true"></i
+        ><label for="file-selector" style="cursor: pointer">Upload Image</label>
+        <p>File size : no larger than 2MB</p>
+      </div>
+    </div>
+
+    <img src=img/element1.svg class="dots"> <img src=img/vector2.svg
+    class="oval">
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+
+    <script>
+      // The web app configg
+      var firebaseConfig = {
+        apiKey: "AIzaSyB3YmvxqwBHqxFdH2-BYtXMrBQ9VwQd-ZE",
+        authDomain: "skinsight-170ce.firebaseapp.com",
+        projectId: "skinsight-170ce",
+        storageBucket: "skinsight-170ce.appspot.com",
+        messagingSenderId: "764473003561",
+        appId: "1:764473003561:web:201d600de43def0a305638",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+    </script>
+    <script src="./detectorPage.js"></script>
+  </body>
+</html>

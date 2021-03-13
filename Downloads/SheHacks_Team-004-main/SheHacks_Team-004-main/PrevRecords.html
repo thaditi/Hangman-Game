@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skin Analyzer</title>
+    <link rel="stylesheet" type="text/css" href="./PrevRecords.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@1,600&family=Noto+Sans+JP&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="navcontainer">
+      <nav>
+        <a href="./index.html">Home</a>
+        <a href="./detectorPage.html">Analysis</a>
+        <a href="#" class="active" id="diary">Diary</a>
+        <a href="./login.html">Login</a>
+        <a href="#">LogOut</a>
+      </nav>
+    </div>
+    <br />
+    <div class="main prevRecord" onload="scans()">
+      <h1>Your Previous Skin Scans</h1>
+      <p>Recent Scans(Max 4.)</p>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div id="records_cards"></div>
+    </div>
+
+    <img src=img/element1.svg class="dots"> <img src=img/vector2.svg
+    class="oval">
+    <script src="./app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+
+    <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyB3YmvxqwBHqxFdH2-BYtXMrBQ9VwQd-ZE",
+        authDomain: "skinsight-170ce.firebaseapp.com",
+        projectId: "skinsight-170ce",
+        storageBucket: "skinsight-170ce.appspot.com",
+        messagingSenderId: "764473003561",
+        appId: "1:764473003561:web:201d600de43def0a305638",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      var v = localStorage.getItem("myItem");
+
+      //console.log(v);
+      var data;
+      firebase
+        .firestore()
+        .collection("user/" + v + "/scans")
+        .onSnapshot((snapshot) => {
+          data = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          //console.log("SCANS", data);
+
+          for (var i = 0; i < 4; i++) {
+            var div = document.createElement("div");
+            document.getElementById("records_cards").innerHTML +=
+              '<div class="container"><div class="post"><div class="header_post"><img src="' +
+              data[i].image_url +
+              '"alt=""></div><div class="body_post"><div class="post_content"><h1>' +
+              data[i].problem +
+              "</h1></div></div></div></div>";
+            // mainContainer.appendChild(div);
+          }
+        });
+    </script>
+  </body>
+</html>
